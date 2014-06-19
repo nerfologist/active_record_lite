@@ -22,7 +22,14 @@ describe SQLObject do
     it '::table_name generates default name' do
       expect(Cat.table_name).to eq('cats')
     end
+  end
+  describe '::columns' do
+    it '::columns gets the columns from the table and symbolizes them' do
+      expect(Cat.columns).to eq([:id, :name, :owner_id])
+    end
+  end
 
+  describe '::parse_all' do
     it '::parse_all turns an array of hashes into objects' do
       hashes = [
         { name: 'cat1', owner_id: 1 },
