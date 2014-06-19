@@ -23,11 +23,43 @@ describe SQLObject do
       expect(Cat.table_name).to eq('cats')
     end
   end
-  describe '::columns' do
-    it '::columns gets the columns from the table and symbolizes them' do
-      expect(Cat.columns).to eq([:id, :name, :owner_id])
-    end
-  end
+  
+     describe '::columns' do                                                      
+     it '::columns gets the columns from the table and symbolizes them' do      
+       expect(Cat.columns).to eq([:id, :name, :owner_id])                       
+     end                                                                        
+                                                                                
+                                                                                
+     it'::columns creates getter methods for each column' do                    
+       Cat.columns                                                              
+       c = Cat.new                                                              
+       expect(c.respond_to? :something).to be_false                             
+       expect(c.respond_to? :name).to be_true                                   
+       expect(c.respond_to? :id).to be_true                                     
+       expect(c.respond_to? :owner_id).to be_true                               
+     end                                                                        
+                                                                                
+     it '::columns creates setter methods for each column' do                   
+       Cat.columns                                                              
+       c = Cat.new                                                              
+       c.name = "Nick Diaz"                                                     
+       c.id = 209                                                               
+       c.owner_id = 2                                                           
+       expect(c.name).to eq 'Nick Diaz'                                         
+       expect(c.id).to eq 209                                                   
+       expect(c.owner_id).to eq 2                                               
+     end                                                                        
+                                                                                
+     it '::columns created setter methods use attributes hash to store data' do 
+       Cat.columns                                                              
+       c = Cat.new                                                              
+       c.name = "Nick Diaz"                                                     
+       expect(c.instance_variables).to eq [:@attributes]                        
+       expect(c.attributes[:name]).to eq 'Nick Diaz'                            
+     end                                                                        
+                                                                                
+   end                                                                          
+                                                                                
 
   describe '::parse_all' do
     it '::parse_all turns an array of hashes into objects' do
