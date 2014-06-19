@@ -1,4 +1,4 @@
-require_relative '03_searchable'
+require_relative '02_searchable'
 require 'active_support/inflector'
 
 # Phase IVa

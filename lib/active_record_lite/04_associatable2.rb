@@ -1,4 +1,4 @@
-require_relative '04_associatable'
+require_relative '03_associatable'
 
 # Phase V
 module Associatable

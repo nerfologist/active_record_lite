@@ -1,6 +1,7 @@
 require_relative 'db_connection'
-require_relative '01_mass_object'
 require 'active_support/inflector'
+#NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
+#    of this project. It was only a warm up.
 
 class MassObject
   def self.parse_all(results)
