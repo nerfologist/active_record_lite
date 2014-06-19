@@ -59,7 +59,20 @@ describe SQLObject do
      end                                                                        
                                                                                 
    end                                                                          
-                                                                                
+                                                              
+  describe '#initialize' do                                  
+    it '#initialize properly sets values' do                 
+      c = Cat.new(name: 'Don Frye', id: 100, owner_id: 4)    
+      expect(c.name).to eq 'Don Frye'                        
+      expect(c.id).to eq 100                                 
+      expect(c.owner_id).to eq 4                             
+    end                                                      
+    it '#initialize throws the error with unknown attr' do  
+      expect do                                              
+        Cat.new(favorite_band: 'Anybody but The Eagles')     
+      end.to raise_error "unknown attribute 'favorite_band'" 
+    end                                                      
+  end                                                        
 
   describe '::parse_all' do
     it '::parse_all turns an array of hashes into objects' do
