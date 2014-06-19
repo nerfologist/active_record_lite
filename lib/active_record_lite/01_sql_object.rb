@@ -3,13 +3,7 @@ require 'active_support/inflector'
 #NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
 #    of this project. It was only a warm up.
 
-class MassObject
-  def self.parse_all(results)
-    # ...
-  end
-end
-
-class SQLObject < MassObject
+class SQLObject
   def self.columns
     # ...
   end
@@ -23,6 +17,10 @@ class SQLObject < MassObject
   end
 
   def self.all
+    # ...
+  end
+  
+  def self.parse_all(results)
     # ...
   end
 
