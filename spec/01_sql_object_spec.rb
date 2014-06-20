@@ -33,10 +33,10 @@ describe SQLObject do
      it'::columns creates getter methods for each column' do                    
        Cat.columns                                                              
        c = Cat.new                                                              
-       expect(c.respond_to? :something).to be_false                             
-       expect(c.respond_to? :name).to be_true                                   
-       expect(c.respond_to? :id).to be_true                                     
-       expect(c.respond_to? :owner_id).to be_true                               
+       expect(c.respond_to? :something).to be false                             
+       expect(c.respond_to? :name).to be true                                   
+       expect(c.respond_to? :id).to be true                                     
+       expect(c.respond_to? :owner_id).to be true                               
      end                                                                        
                                                                                 
      it '::columns creates setter methods for each column' do                   
