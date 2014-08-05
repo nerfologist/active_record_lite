@@ -1,3 +1,2 @@
-After the project, you can review the solution here:
-
-* https://github.com/appacademy-solutions/active_record_lite/tree/solution
+# Active Record Lite
+A lite version of Active Record, built to better understand the work that the framework does behind the scenes.
